@@ -1,4 +1,9 @@
-# gridder [![Build Status](https://travis-ci.com/shomali11/gridder.svg?branch=master)](https://travis-ci.com/shomali11/gridder) [![Go Report Card](https://goreportcard.com/badge/github.com/shomali11/gridder)](https://goreportcard.com/report/github.com/shomali11/gridder) [![GoDoc](https://godoc.org/github.com/shomali11/gridder?status.svg)](https://godoc.org/github.com/shomali11/gridder) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+## Forked from: github.com/shomali11/gridder
+```
+Added RowHeightOffset, ColumnWidthOffset parameters to be able to render non-equal grid cells.
+```
+<br>
+<br>
 
 Built on top of Go Graphics [github.com/fogleman/gg](https://github.com/fogleman/gg) with the idea to simplify visualizing Grids using 2D Graphics.
 

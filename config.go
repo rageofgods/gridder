@@ -63,16 +63,50 @@ func (g *ImageConfig) GetName() string {
 
 // GridConfig Grid Configuration
 type GridConfig struct {
-	Rows              int
-	Columns           int
-	MarginWidth       int
-	LineDashes        float64
-	LineStrokeWidth   float64
-	BorderDashes      float64
-	BorderStrokeWidth float64
-	LineColor         color.Color
-	BorderColor       color.Color
-	BackgroundColor   color.Color
+	Rows               int
+	Columns            int
+	MarginWidth        int
+	RowsHeightOffset   []*RowHeightOffset
+	ColumnsWidthOffset []*ColumnWidthOffset
+	LineDashes         float64
+	LineStrokeWidth    float64
+	BorderDashes       float64
+	BorderStrokeWidth  float64
+	LineColor          color.Color
+	BorderColor        color.Color
+	BackgroundColor    color.Color
+}
+
+// RowHeightOffset add positive or negative offset in pixels for row height
+type RowHeightOffset struct {
+	Row    int
+	Offset float64
+}
+
+// ColumnWidthOffset add positive or negative offset in pixels for column width
+type ColumnWidthOffset struct {
+	Column int
+	Offset float64
+}
+
+// RowOffset return offset for row number
+func (g GridConfig) RowOffset(row int) float64 {
+	for _, v := range g.RowsHeightOffset {
+		if v.Row == row {
+			return v.Offset
+		}
+	}
+	return 0
+}
+
+// ColumnOffset return offset for column number
+func (g GridConfig) ColumnOffset(column int) float64 {
+	for _, v := range g.ColumnsWidthOffset {
+		if v.Column == column {
+			return v.Offset
+		}
+	}
+	return 0
 }
 
 // GetWidth gets grid width
